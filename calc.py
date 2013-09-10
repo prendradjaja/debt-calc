@@ -1,4 +1,5 @@
 from itertools import combinations
+from datetime import date
 
 PEOPLE_ABBRS = ['Li', 'Mi', 'Pa', 'Sa', 'Se', 'St']
 #LINDA, MICHELLE, PANDU, SAM, SEAN, STACY = range(6)
@@ -22,7 +23,8 @@ def main():
     output += '\nData\n'
     for t in transactions:
         output += str(t) + '\n'
-    with open('outfile.txt', 'w') as f:
+    outfile = 'out-{0}.txt'.format(date.today().isoformat())
+    with open(outfile, 'w') as f:
         f.write(output)
 
 def simplify(amounts_owed, verbose):
